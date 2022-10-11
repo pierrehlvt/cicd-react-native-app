@@ -1,4 +1,5 @@
-name: react-native-android-build-apk
+name: update on push CICD react-native
+
 on:
   push:
     branches:
@@ -28,14 +29,11 @@ jobs:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
       - name: Deploy to server
-        uses: appleboy/scp-action@master # We use this repository that allow remote ssh commands
-        # Setting remote parameters configured in repository secrets
+        uses: appleboy/scp-action@master
         with:
-          key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.KEY }}
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           port: ${{ secrets.PORT }}
-          source: "build/"
+          source: "android/app/build/outputs/apk/release/"
           target: "/home/pierre/mobile"
-
