@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
-          path: android/app/build/outputs/apk/release/
+          path: release
       - name: Deploy to server
         uses: appleboy/scp-action@master
         with:
@@ -36,5 +36,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
-          source: "android/app/build/outputs/apk/release/"
+          source: "release"
           target: "/home/pierre/mobile"
