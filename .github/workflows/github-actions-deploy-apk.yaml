@@ -42,6 +42,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
-          source: "android/app/build/outputs/apk/release/"
+          source: "android/app/build/outputs/apk/release/app-release.apk"
           target: "/home/pierre/mobile"
           strip_components: 5
